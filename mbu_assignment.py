@@ -32,9 +32,37 @@ def main():
     print "You have entered " + str(len(sys.argv[1:])) + " arguments."
     print "They are: " 
 
+
+    int_cast_args = []
+
     #This is for loop. We take each element from sys.argv and print it to the consile.
     for i in sys.argv[1:]:
         print str(i)
-
+        
+        try:
+            if int(i):
+                int_cast_args.append(int(i))
+        except:
+            #print "'%s' not an integer" % i
+            pass
+            
+            
+    print "Integer Arguments: "
+    for i in int_cast_args:
+        print str(i),
+    
+    numArgs = len(sys.argv[1:])
+    if numArgs % 2 == 0:
+        even = True
+    else:
+        even = False
+        
+    print
+    
+    if even:
+        print "There are an even number of arguments"
+    else:
+        print "There are an odd number of arguments"
+    
 if __name__ == '__main__':
     main()
